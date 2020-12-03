@@ -1,0 +1,34 @@
+#! /bin/zsh
+
+
+doc () {
+cat << EOF
+sdsad this is a doc
+EOF
+}
+
+
+while [ "$1" != '' ]
+do
+    case "$1" in
+        -f | --file)
+            shift
+            echo "file"
+            ;;
+        -b | --block)
+            shift
+            echo "block"
+            ;;
+        *)
+            printf -- '\033[31m '$1' is not an option \033[31m \n please check -h or --help option or more information\n';
+            exit 1
+            ;;
+    esac
+done
+
+if [ "$#" -le 1 ]
+then
+doc
+fi
+
+
